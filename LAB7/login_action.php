@@ -15,9 +15,15 @@ if ($result->num_rows == 0) {
     if ($user['pass'] !== $hash_pass) {
         loginFailed($email);
     } else {
+        session_start();
+        if($_POST['auto_login']) {
+            $hash_time = substr(md5(time()),0,32);
+            setcookie('access_token', $hash_time, time() + (3600 * 24 * 30));
+            $db->query("UPDATE users SET remember_digest = '$hash_time' WHERE id = '".$user['id']."'");
+        }
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['user_name'] = $user['name'];
         setcookie("error", "", time() - 3600);
-        setcookie('user_id', $user['id']);
-        setcookie('user_name', $user['name']);
         header("Location:index.php");
     }
 }

@@ -14,5 +14,6 @@ try {
     print($e->getTraceAsString());
 }
 
-setcookie('user_id', "", time() - 3600);
-setcookie('user_name', "", time() - 3600);
+session_start();
+session_destroy();
+setcookie('access_token', "", time() - 3600);

@@ -6,7 +6,7 @@ namespace App;
 use Illuminate\Support\Facades\DB;
 
 
-class Store_model
+class Bakery_model
 {
     public static function get_products($id)
     {
@@ -23,8 +23,8 @@ class Store_model
         return collect(
             DB::select(
                 "SELECT *
-             FROM products
-             WHERE id = ?",
+                 FROM products
+                 WHERE id = ?",
                 [$id]
             )
         )->first();
@@ -38,67 +38,23 @@ class Store_model
         );
     }
 
-    public static function create_order($customer_id, $total)
-    {
-        return DB::table("orders")->insertGetId([
-            "customer_id" => $customer_id,
-            "total" => $total,
-            "created_at" => date('Y-m-d H:i:s', time())
-        ]);
-    }
-
-    public static function insert_order_item($order_id, $product_id, $quantity)
-    {
-        return DB::insert(
-            "INSERT INTO order_items(order_id, product_id, quantity)
-             VALUES (?, ?, ?)",
-            [$order_id, $product_id, $quantity]
-        );
-    }
-
-    public static function get_orders($customer_id)
-    {
-        return DB::select(
-            "SELECT *
-             FROM orders
-             WHERE customer_id = ?",
-            [$customer_id]
-        );
-    }
-
-    public static function get_order_items($order_id)
-    {
-        return DB::select(
-            "SELECT *
-             FROM order_items
-             INNER JOIN products p on order_items.product_id = p.id
-             WHERE order_id = ?",
-            [$order_id]
-        );
-    }
-
-    public static function register_user($username, $email, $password)
+    public static function register_user($name, $email, $password, $activation_digest)
     {
         $password_digest = substr(md5($password), 0, 32);
         return DB::insert(
-            "INSERT INTO customers(name, email, password_digest, created_at, updated_at)
-             VALUES(?, ?, ?, NOW(), NOW())",
-            [$username, $email, $password_digest]
+            "INSERT INTO customers(name, email, password_digest, created_at, updated_at, activation_digest)
+             VALUES(?, ?, ?, NOW(), NOW(), ?)",
+            [$name, $email, $password_digest, $activation_digest]
         );
     }
 
-    public static function validate_user($email, $password)
+    public static function activate_user($activation_digest)
     {
-        $password_digest = substr(md5($password), 0, 32);
-        return collect(
-            DB::select(
-                "SELECT *
-                 FROM customers
-                 WHERE email = ?
-                 AND password_digest = ?
-                 LIMIT 1",
-                [$email, $password_digest]
-            )
-        )->first();
+        return DB::update(
+            "UPDATE customers
+             SET activated = 1, activated_at = NOW()
+             WHERE activation_digest = ?",
+            [$activation_digest]
+        );
     }
 }

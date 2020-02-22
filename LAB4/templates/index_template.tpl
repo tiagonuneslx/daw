@@ -86,7 +86,7 @@
         <div class="col border shadow-sm py-3 bg-white rounded">
             <div class="row">
                 <div class="ml-4 col-3 post-info">
-                    <div style="border: 1px solid steelblue; border-radius: 2%">
+                    <div style="border: 1px solid steelblue; border-radius: 2%;">
                         <div class="text-white text-center" style="background-color: steelblue">
                             <p class="p-2">{$post["user_name"]}</p>
                         </div>

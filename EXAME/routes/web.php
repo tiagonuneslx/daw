@@ -14,3 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/home", 'Shelter@home');
+Route::get("/pets/{cat_id?}", 'Shelter@pets');
+Route::get("/register", 'Shelter@register');
+Route::post("/register", 'Shelter@registerAction');
+Route::get("/login", 'Shelter@login');
+Route::post("/login", 'Shelter@loginAction');
+Route::get("/logout", 'Shelter@logout');
+Route::get("/adopt/{pet_id}", 'Shelter@adopt');
+Route::get("/mypets", 'Shelter@mypets');

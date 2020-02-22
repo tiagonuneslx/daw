@@ -37,20 +37,27 @@
 </nav>
 <div class="container">
     <h2 class="text-center mt-5">Login</h2>
-    <form class="p-5">
-        <div class="form-group row d-flex justify-content-center">
+    <form action="login_action.php" method="post" class="p-3">
+        {if $message}
+            <div class="row d-flex justify-content-center">
+                <div class="col-sm-9 alert alert-danger text-center" role="alert">
+                    {$message}
+                </div>
+            </div>
+        {/if}
+        <div class="form-group row d-flex justify-content-center {if !$message}mt-5{/if} mt-4">
             <label class="col-sm-1 col-form-label" for="inputEmail">Email</label>
             <div class="col-sm-6">
-                <input class="form-control" id="inputEmail" placeholder="Email" type="email">
+                <input class="form-control" id="inputEmail" placeholder="Email" type="email" name="user_email" value="{$user_email}">
             </div>
         </div>
         <div class="form-group row d-flex justify-content-center">
             <label class="col-sm-1 col-form-label" for="inputPassword">Password</label>
             <div class="col-sm-6">
-                <input class="form-control" id="inputPassword" placeholder="Password" type="password">
+                <input class="form-control" id="inputPassword" placeholder="Password" type="password" name="user_pass">
             </div>
         </div>
-        <div class="form-group row d-flex justify-content-center">
+        <div class="form-group row d-flex justify-content-center mb-5">
             <div class="col-sm-1" style="padding: 0">
                 <button class="btn btn-primary px-4" type="submit">Login</button>
             </div>
@@ -58,7 +65,7 @@
     </form>
 </div>
 <br><br>
-<footer class="page-footer py-4 bg-dark text-white row m-0 mt-5">
+<footer class="page-footer py-4 bg-dark text-white row m-0 {if !$message}mt-5{/if}">
     <div class="col-6 text-right">
         <small>2019 &copy; Desenvolvimento de Aplicações Web</small><br>
         <small>FCT - Universidade do Algarve</small>

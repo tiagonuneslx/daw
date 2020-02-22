@@ -47,13 +47,13 @@
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">New Post</a>
+                <a class="nav-link" href="blog.php">New Post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.php">Logout</a>
+                <a class="nav-link" href="logout_action.php">Logout</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Welcome Tiago Nunes</a>
+                <a class="nav-link" href="#">Welcome {$user_name}</a>
             </li>
         </ul>
     </div>
@@ -88,12 +88,12 @@
                 <div class="ml-4 col-3 post-info">
                     <div style="border: 1px solid steelblue; border-radius: 2%">
                         <div class="text-white text-center" style="background-color: steelblue">
-                            <p class="p-2">{$post["user_name"]}</p>
+                            <p class="p-2">{$post['user_name']}</p>
                         </div>
                         <div class="px-3 pb-3">
-                            <p>Last Modified: {$post["updated_at"]}</p>
-                            <p>Date of Creation: {$post["created_at"]}</p>
-                            <a href="#">Update post</a>
+                            <p>Last Modified: {$post['updated_at']}</p>
+                            <p>Date of Creation: {$post['created_at']}</p>
+                            <a href="blog.php?micropost_id={$post['id']}">Update post</a>
                         </div>
                     </div>
                 </div>

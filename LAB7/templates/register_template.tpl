@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,11 +12,23 @@
     <title>Register - Sup Dude Forum</title>
 </head>
 <body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script crossorigin="anonymous"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 <!-- Top bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.php">Sup Dude Forum</a>
+    <a class="navbar-brand" href="index.php"><img src="img/lebowski.png" alt="" style="max-height: 70px; object-fit: cover; margin: -13px 10px -13px 0;"/>Sup Dude Forum</a>
     <button aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-            data-target="#navbarColor01" data-toggle="collapse" type="button">
+            data-target=".navbar-collapse" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse">
@@ -48,13 +60,15 @@
         <div class="form-group row d-flex mt-4 justify-content-center">
             <label class="col-sm-2 col-form-label" for="inputName">Name</label>
             <div class="col-sm-7">
-                <input class="form-control" id="inputName" placeholder="Name" type="text" name="user_name" value="{$user_name}">
+                <input class="form-control" id="inputName" placeholder="Name" type="text" name="user_name"
+                       value="{$user_name}">
             </div>
         </div>
         <div class="form-group row d-flex justify-content-center">
             <label class="col-sm-2 col-form-label" for="inputEmail">Email</label>
             <div class="col-sm-7">
-                <input class="form-control" id="inputEmail" placeholder="Email" type="email" name="user_email" value="{$user_email}">
+                <input class="form-control" id="inputEmail" placeholder="Email" type="email" name="user_email"
+                       value="{$user_email}">
             </div>
         </div>
         <div class="form-group row d-flex justify-content-center">
@@ -66,7 +80,8 @@
         <div class="form-group row d-flex justify-content-center">
             <label class="col-sm-2 col-form-label" for="inputPassword2">Confirm Password</label>
             <div class="col-sm-7">
-                <input class="form-control" id="inputPassword2" placeholder="Confirm Password" type="password" name="user_pass_confirm">
+                <input class="form-control" id="inputPassword2" placeholder="Confirm Password" type="password"
+                       name="user_pass_confirm">
             </div>
         </div>
         <div class="form-group row d-flex justify-content-center pt-3">

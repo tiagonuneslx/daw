@@ -9,6 +9,10 @@ $smarty->setCompileDir('templates_c');
 
 $db = dbConnect($hostname, $db_name, $db_user, $db_pass);
 
+if (isset($_COOKIE['user_name'])) {
+    $smarty->assign('user_name', $_COOKIE['user_name']);
+}
+
 $query = "SELECT m.*, u.name user_name FROM microposts m INNER JOIN users u ON m.user_id = u.id";
 if ($result = $db->query($query)) {
     $posts = array();

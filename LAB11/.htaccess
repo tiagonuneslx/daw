@@ -6,7 +6,7 @@
     RewriteEngine On
 
     # Use: RewriteBase /<subdirectory> if installed in subdirectory
-    RewriteBase /~a61271/LAB9_10
+    RewriteBase /~a61271/LAB11
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

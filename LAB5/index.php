@@ -9,22 +9,13 @@ $smarty->setCompileDir('templates_c');
 
 $db = dbConnect($hostname, $db_name, $db_user, $db_pass);
 
-if ($result = $db->query("SELECT * FROM microposts")) {
+$query = "SELECT m.*, u.name user_name FROM microposts m INNER JOIN users u ON m.user_id = u.id";
+if ($result = $db->query($query)) {
     $posts = array();
     while ($row = $result->fetch_assoc()) {
-        array_push($posts,$row);
+        $posts[] = $row;
     }
     $smarty->assign('posts', $posts);
-    $result->close();
-    $db->next_result();
-}
-
-if ($result = $db->query("SELECT * FROM users")) {
-    $users = array();
-    while ($row = $result->fetch_assoc()) {
-        $users[$row["id"]] = $row;
-    }
-    $smarty->assign('users', $users);
     $result->close();
     $db->next_result();
 }

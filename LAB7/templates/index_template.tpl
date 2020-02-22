@@ -2,7 +2,6 @@
 <html lang="pt-pt">
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
     <!-- Bootstrap CSS -->
@@ -17,7 +16,7 @@
         }
     </style>
 
-    <title>Sup Dude Forum</title>
+    <title>😎&nbsp;&nbsp;&nbsp;Sup Dude Forum</title>
 </head>
 <body>
 <!-- Optional JavaScript -->
@@ -33,10 +32,10 @@
         src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 <!-- Top bar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.php">Sup Dude Forum</a>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.php"><img src="img/lebowski.png" alt="" style="max-height: 70px; object-fit: cover; margin: -13px 10px -13px 0;"/>Sup Dude Forum</a>
     <button aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
-            data-target="#navbarColor01" data-toggle="collapse" type="button">
+            data-target=".navbar-collapse" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse">
@@ -46,15 +45,24 @@
             </li>
         </ul>
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="blog.php">New Post</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="logout_action.php">Logout</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Welcome {$user_name}</a>
-            </li>
+            {if isset($user_name)}
+                <li class="nav-item">
+                    <a class="nav-link" href="blog.php">New Post</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="logout_action.php">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Welcome {$user_name}</a>
+                </li>
+            {else}
+                <li class="nav-item">
+                    <a class="nav-link" href="login.php">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.php">Register</a>
+                </li>
+            {/if}
         </ul>
     </div>
 </nav>
@@ -82,27 +90,29 @@
         </div>
     </div>
     {foreach $posts as $post}
-    <div class="row mb-3">
-        <div class="col border shadow-sm py-3 bg-white rounded">
-            <div class="row">
-                <div class="ml-4 col-3 post-info">
-                    <div style="border: 1px solid steelblue; border-radius: 2%">
-                        <div class="text-white text-center" style="background-color: steelblue">
-                            <p class="p-2">{$post['user_name']}</p>
-                        </div>
-                        <div class="px-3 pb-3">
-                            <p>Last Modified: {$post['updated_at']}</p>
-                            <p>Date of Creation: {$post['created_at']}</p>
-                            <a href="blog.php?micropost_id={$post['id']}">Update post</a>
+        <div class="row mb-3">
+            <div class="col border shadow-sm py-3 bg-white rounded">
+                <div class="row">
+                    <div class="ml-4 col-sm-3 post-info">
+                        <div style="border: 1px solid steelblue; border-radius: 2%; word-wrap: break-word;">
+                            <div class="text-white text-center" style="background-color: steelblue">
+                                <p class="p-2">{$post['user_name']}</p>
+                            </div>
+                            <div class="px-3 pb-3">
+                                <p>Last Modified: {$post['updated_at']}</p>
+                                <p>Date of Creation: {$post['created_at']}</p>
+                                {if $user_id === $post['user_id']}
+                                    <a href="blog.php?micropost_id={$post['id']}">Update post</a>
+                                {/if}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col px-5 py-1">
-                    <p>{$post["content"]}</p>
+                    <div class="col px-5 py-1">
+                        <p>{$post["content"]}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     {/foreach}
 </div>
 <footer class="page-footer py-4 bg-dark text-white row m-0 mt-3">

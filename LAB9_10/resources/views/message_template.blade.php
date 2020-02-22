@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <meta http-equiv="refresh" content="5; url=index.php"/>
+    <meta http-equiv="refresh" content="5; url={{route('home')}}"/>
 
     <!-- Bootstrap CSS -->
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -13,12 +13,14 @@
     <title>Message - Sup Dude Forum</title>
 </head>
 <body>
-    <div class="content">
-        <div class="row d-flex justify-content-center">
-            <div class="col-sm-9 alert alert-warning text-center m-3" role="alert">
-                {$message}
-            </div>
-            <small>You should be redirected to the Home Page in a few seconds. If you don't, click this <a href="index.php">direct link</a></small>
+<div class="content">
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-9 alert alert-warning text-center m-3" role="alert">
+            {{$message}}
         </div>
+        <small>You should be redirected to the Home Page in a few seconds. If you don't, click this
+            <a href="{{route('home')}}">direct link</a>
+        </small>
     </div>
+</div>
 </body>

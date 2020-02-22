@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-pt">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -34,7 +34,7 @@
 
 <!-- Top bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index_template.html">Sup Dude Forum</a>
+    <a class="navbar-brand" href="index.php">Sup Dude Forum</a>
     <button aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
             data-target="#navbarColor01" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -50,7 +50,7 @@
                 <a class="nav-link" href="#">New Post</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login_template.html">Logout</a>
+                <a class="nav-link" href="login.php">Logout</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Welcome Tiago Nunes</a>
@@ -88,7 +88,7 @@
                 <div class="ml-4 col-3 post-info">
                     <div style="border: 1px solid steelblue; border-radius: 2%">
                         <div class="text-white text-center" style="background-color: steelblue">
-                            <p class="p-2">{$users[$post["user_id"]]["name"]}</p>
+                            <p class="p-2">{$post["user_name"]}</p>
                         </div>
                         <div class="px-3 pb-3">
                             <p>Last Modified: {$post["updated_at"]}</p>

@@ -2,7 +2,7 @@
 <html lang="pt-pt">
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="iso-8859-1">
     <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
     <!-- Bootstrap CSS -->
@@ -26,7 +26,9 @@
 
 <!-- Top bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.php"><img src="img/lebowski.png" alt="" style="max-height: 70px; object-fit: cover; margin: -13px 10px -13px 0;"/>Sup Dude Forum</a>
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{url('img/lebowski.png')}}" alt=""
+                                                          style="max-height: 70px; object-fit: cover; margin: -13px 10px -13px 0;"/>Sup
+        Dude Forum</a>
     <button aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
             data-target=".navbar-collapse" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -34,12 +36,12 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="{{route('home')}}">Home</a>
             </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="blog.php">New Post</a>
+                <a class="nav-link active" href="{{route('post')}}">New Post</a>
             </li>
         </ul>
     </div>
@@ -50,10 +52,17 @@
             <h2>Edit/Create Post</h2>
         </div>
     </div>
-    <form class="p-4" action="{$action}" method="post">
+    <form class="p-4"
+          @if ($blog_id)
+          action="{{route('post_action', ['blog_id' => $blog_id])}}"
+          @else
+          action="{{route('post_action')}}"
+          @endif
+          method="post">
+        {{csrf_field()}}
         <div class="row d-flex justify-content-center">
             <div class="col-sm-8">
-            <textarea class="form-control" name="blog" rows="7">{$blog}</textarea>
+                <textarea class="form-control" name="content" rows="7">{{$content}}</textarea>
             </div>
         </div>
         <div class="row d-flex justify-content-center mt-3 pb-5">

@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get("/bakery/menu/{id?}", 'Bakery@menu');
+Route::get("/bakery/register", 'Bakery@register');
+Route::post("/bakery/register", 'Bakery@registerAction');
+Route::get("/bakery/activate/{token}", 'Bakery@activate');

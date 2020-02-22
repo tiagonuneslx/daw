@@ -4,7 +4,7 @@
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="shortcut icon" href="{{asset("assets/img/fav.png")}}">
 		<!-- Author Meta -->
 		<meta name="author" content="codepixer">
 		<!-- Meta Description -->
@@ -20,21 +20,21 @@
 			<!--
 			CSS
 			============================================= -->
-			<link rel="stylesheet" href="css/linearicons.css">
-			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/magnific-popup.css">
-			<link rel="stylesheet" href="css/nice-select.css">							
-			<link rel="stylesheet" href="css/animate.min.css">
-			<link rel="stylesheet" href="css/owl.carousel.css">
-			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="{{asset("assets/css/linearicons.css")}}">
+			<link rel="stylesheet" href="{{asset("assets/css/font-awesome.min.css")}}">
+			<link rel="stylesheet" href="{{asset("assets/css/bootstrap.css")}}">
+			<link rel="stylesheet" href="{{asset("assets/css/magnific-popup.css")}}">
+			<link rel="stylesheet" href="{{asset("assets/css/nice-select.css")}}">							
+			<link rel="stylesheet" href="{{asset("assets/css/animate.min.css")}}">
+			<link rel="stylesheet" href="{{asset("assets/css/owl.carousel.css")}}">
+			<link rel="stylesheet" href="{{asset("assets/css/main.css")}}">
 		</head>
 		<body>
 			  <header id="header" id="home">
 			    <div class="container main-menu">
 			    	<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				        <a href="{{action('Shelter@home')}}"><img src="{{asset("assets/img/logo.png")}}" alt="" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">			              
@@ -54,7 +54,7 @@
 								Adopt Us. <br>
 								We need your help.		
 							</h1>
-							<a href="pets.html" class="primary-btn header-btn text-uppercase">View our pets!</a>
+							<a href="{{action('Shelter@pets')}}" class="primary-btn header-btn text-uppercase">View our pets!</a>
 						</div>											
 					</div>
 				</div>
@@ -67,40 +67,40 @@
 					<div class="row">
 						<div class="active-image-carusel">
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c1.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c1.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c2.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c2.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c3.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c3.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c4.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c4.jpg")}}" alt="">
 							</div>	
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c1.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c1.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c2.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c2.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c3.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c3.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c4.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c4.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c1.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c1.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c2.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c2.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c3.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c3.jpg")}}" alt="">
 							</div>
 							<div class="single-image-carusel">
-								<img class="img-fluid" src="img/c4.jpg" alt="">
+								<img class="img-fluid" src="{{asset("assets/img/c4.jpg")}}" alt="">
 							</div>															
 						</div>
 					</div>
@@ -129,18 +129,18 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</footer>
 			<!-- End footer Area -->	
 
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="{{asset("assets/js/vendor/jquery-2.2.4.min.js")}}"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="{{asset("assets/js/vendor/bootstrap.min.js")}}"></script>			
 			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-  			<script src="js/easing.min.js"></script>			
-			<script src="js/hoverIntent.js"></script>
-			<script src="js/superfish.min.js"></script>	
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>	
-			<script src="js/owl.carousel.min.js"></script>						
-			<script src="js/jquery.nice-select.min.js"></script>							
-			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
+  			<script src="{{asset("assets/js/easing.min.js")}}"></script>			
+			<script src="{{asset("assets/js/hoverIntent.js")}}"></script>
+			<script src="{{asset("assets/js/superfish.min.js")}}"></script>	
+			<script src="{{asset("assets/js/jquery.ajaxchimp.min.js")}}"></script>
+			<script src="{{asset("assets/js/jquery.magnific-popup.min.js")}}"></script>	
+			<script src="{{asset("assets/js/owl.carousel.min.js")}}"></script>						
+			<script src="{{asset("assets/js/jquery.nice-select.min.js")}}"></script>							
+			<script src="{{asset("assets/js/mail-script.js")}}"></script>	
+			<script src="{{asset("assets/js/main.js")}}"></script>	
 		</body>
 	</html>

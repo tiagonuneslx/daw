@@ -26,7 +26,9 @@
 
 <!-- Top bar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="index.php"><img src="img/lebowski.png" alt="" style="max-height: 70px; object-fit: cover; margin: -13px 10px -13px 0;"/>Sup Dude Forum</a>
+    <a class="navbar-brand" href="{{route('home')}}"><img src="{{url('img/lebowski.png')}}" alt=""
+                                                          style="max-height: 70px; object-fit: cover; margin: -13px 10px -13px 0;"/>Sup
+        Dude Forum</a>
     <button aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
             data-target=".navbar-collapse" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -34,47 +36,48 @@
     <div class="collapse navbar-collapse">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="index.php">Home</a>
+                <a class="nav-link" href="{{route('home')}}">Home</a>
             </li>
         </ul>
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="login.php">Login</a>
+                <a class="nav-link active" href="{{route('login')}}">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="register.php">Register</a>
+                <a class="nav-link" href="{{route('register')}}">Register</a>
             </li>
         </ul>
     </div>
 </nav>
 <div class="container">
     <h2 class="text-center mt-5">Login</h2>
-    <form action="login_action.php" method="post" class="p-3">
-        {if $message}
+    <form action="{{route('login_action')}}" method="post" class="p-3">
+        {{csrf_field()}}
+        @if (count($errors))
             <div class="row d-flex justify-content-center">
                 <div class="col-sm-9 alert alert-danger text-center" role="alert">
-                    {$message}
+                    {{$errors->first()}}
                 </div>
             </div>
-        {/if}
-        <div class="form-group row d-flex justify-content-center {if !$message}mt-5{/if} mt-4">
+        @endif
+        <div class="form-group row d-flex justify-content-center @if(!count($errors)) mt-5 @endif mt-4">
             <label class="col-sm-1 col-form-label" for="inputEmail">Email</label>
             <div class="col-sm-6">
-                <input class="form-control" id="inputEmail" placeholder="Email" type="email" name="user_email"
-                       value="{$user_email}">
+                <input class="form-control" id="inputEmail" placeholder="Email" type="email" name="email"
+                       value="{{old('email')}}">
             </div>
         </div>
         <div class="form-group row d-flex justify-content-center">
             <label class="col-sm-1 col-form-label" for="inputPassword">Password</label>
             <div class="col-sm-6">
-                <input class="form-control" id="inputPassword" placeholder="Password" type="password" name="user_pass">
+                <input class="form-control" id="inputPassword" placeholder="Password" type="password" name="password">
             </div>
         </div>
         <div class="form-group row d-flex justify-content-end">
             <div class="col-sm-7">
-                <input class="ml-3 mr-1" id="rememberMe" type="checkbox" name="auto_login" value="1">
+                <input class="ml-3 mr-1" id="rememberMe" type="checkbox" name="remember_me" value="1">
                 <label class="pr-5" for="rememberMe">Remember Me</label>
-                <a class="pl-5" href="password_reset.php">Forgot password?</a>
+                <a class="pl-5" href="{{route('password_reset')}}">Forgot password?</a>
             </div>
         </div>
         <div class="form-group row d-flex justify-content-center mb-5">
