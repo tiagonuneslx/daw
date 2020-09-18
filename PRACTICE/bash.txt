@@ -1,8 +1,0 @@
-List of useful Bash commands
-
-Format:
-[Title]
-[Command]
-
-List PHP errors for user a61271:
-tail -f /var/log/apache2/error.log | grep a61271
