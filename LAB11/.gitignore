@@ -3,3 +3,5 @@
 /storage/framework/cache/*
 /.git
 /bootstrap/cache/*
+.env
+vendor
